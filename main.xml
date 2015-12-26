@@ -2,9 +2,7 @@
 
 <!-- pro lokální práci -->
 <!-- stara sablona -->
-<?xml-stylesheet type="text/xsl" href="./sproject_html.xsl"?> 
-<!-- nova sablona vyrobena Davidem Myskou-->
-<!-- <?xml-stylesheet type="text/xsl" href="./sproject_html_v2.xsl"?>  -->
+<?xml-stylesheet type="text/xsl" href="./assets/sproject_html_v3.xsl"?>
 <!DOCTYPE sproject SYSTEM "sproject.dtd">
 
 <!--Pro ucebnu - nutno doladit-->
@@ -85,7 +83,7 @@
       <dm_picture>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="conceptual_schema.png"/>
+            <imagedata fileref="schemata/conceptual_schema.png"/>
           </imageobject>
         </mediaobject>
       </dm_picture>
@@ -102,7 +100,7 @@ Opticky je ve schématu další smyčka: kalendar_namornika - plavba_s_pruvodcem
       <rm_picture>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="relational_schema.png"/>
+            <imagedata fileref="schemata/relational_schema.png"/>
           </imageobject>
         </mediaobject>
       </rm_picture>
@@ -936,19 +934,37 @@ rollback;
       </comment>
     </queries>
     <scripts>
-      <title>Skripty</title>
-      <para>Zdrojový soubor pro SQLDeveleper verze 3.2 - <link url="sqldev-sources.zip">sqldev-sources.zip</link> Před importem nutno rozbalit.</para>
-      <para>Skript pro vytvoření databáze - <link url="create.sql">create.sql</link> .</para>
-      <para>Skript pro vložení dat do databáze - <link url="insert.sql">insert.sql</link></para>
-      <para>Pro efektivnější vkládádání dat většího množství - <link url="pokryti_bus_linek_data.zip">pokryti_bus_linek_data.zip</link></para>
+    	      <tabulka>
+      <radek><kategorie>Zdrojový soubor pro SQLDeveleper verze 3.2</kategorie>
+        <odkazy><link url="schemata/sqldev-sources.zip">sqldev-sources.zip</link></odkazy>
+      </radek>
+
+      <radek><kategorie>Skript pro vytvoření databáze</kategorie>
+        <odkazy><link url="sql/create.sql">create.sql</link></odkazy>
+      </radek>
+
+      <radek><kategorie>Skript pro vložení dat do databáze</kategorie>
+        <odkazy><link url="sql/insert.sql">insert.sql</link></odkazy>
+      </radek>
+
+      <radek><kategorie>Skript s SQL dotazy, který je možné přímo spustit</kategorie>
+        <odkazy><link url="sql/queries.sql">queries.sql</link></odkazy>
+      </radek>
+
+      <radek><kategorie>Výstup skriptu s SQL dotazy</kategorie>
+        <odkazy><link url="queries-log.html">queries-log.html</link></odkazy>
+      </radek>
+      <radek><kategorie>Pro efektivnější vkládádání dat většího množství</kategorie>
+        <odkazy><link url="pokryti_bus_linek_data.zip">pokryti_bus_linek_data.zip</link></odkazy>
+      </radek>
+      </tabulka>
       <comment>
-        <para>Stáhnu a rozbalím tento archivni soubor a extrahuji soubor pokryti_bus_linek_data.xls</para>
+        <para>Archiv pokryti_bus_linek_data.zip stáhnu a extrahuji soubor pokryti_bus_linek_data.xls</para>
         <para>V SQLDeveloper:</para>
         <para>- vyberu tabulku POKRYTI, klepnu na pravé tlačítko myši,</para>
         <para>- v lokální nabídce zvolím Import Data, spustí se průvodce, který mě povede</para>
         <para>Import proběhl mnohem rychleji, než, kdybych měl data ve formátu insert scriptu</para>
       </comment>
-      <para>Skript s SQL dotazy, který je možné přímo spustit - <link url="queries.sql">queries.sql</link>.</para>
       <comment>
        <para>Soubor queries vřele doporučujeme vyrobit pomocí XSLT transformace "make_sql_queries_script.xsl".</para>
        <para>Lze použít libovolný XSLT procesor - například xsltproc, který je volně dostupný.</para>
@@ -960,7 +976,6 @@ rollback;
        <para>  - důsledně používejte znak ";" za každým SQL příkazem</para>
        <para>  - NEVKLADEJTE dovnitř SQL příkazu prázdné řádky (SQLDeveloper je vynechá, SQLPlus je chápe jako ukončení editace bufferu)</para>
       </comment>
-      <para>Výstup předchozího skriptu - <link url="queries-log.html">queries-log.html</link>.</para>
       <comment>
         <para>Pokud jste použili trasformaci "make_sql_queries_script.xsl" a všechny dotazy máte bezchybně odladěné, je vytvoření tohoto souboru triviální.</para>
         <para>V prostředí SQLPlus spustíte pomocí příkazu "@" výše vytvořený soubor.</para>
